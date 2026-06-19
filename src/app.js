@@ -1,5 +1,5 @@
 const express = require("express");
-const mysql = require("mysql");
+const mysql = require("mysql2");
 
 var app = express();
 app.set("port", process.env.PORT || 8080);
@@ -26,7 +26,6 @@ const pool = mysql.createPool({
   user: process.env.DB_USER,
   password: process.env.DB_PASS,
   database: "qod",
-  insecureAuth: true,
 });
 
 var getConnection = function (res, callback) {
@@ -40,12 +39,6 @@ var getConnection = function (res, callback) {
     callback(connection);
   });
 };
-
-// function between(min, max) {
-//     return Math.floor(
-//       Math.random() * (max - min) + min
-//     )
-// }
 
 function dailyQuoteId() {
   // assumes the order of the database is random, and day of year is same as quote id.

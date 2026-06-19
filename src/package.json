@@ -7,7 +7,7 @@
 	},
 	"dependencies": {
 		"express": "5.*",
-		"mysql": "^2.18.1"
+		"mysql2": "^3.0.0"
 	},
 	"repository": {}
 }
