@@ -92,7 +92,7 @@ app.get("/quotes/:id", function (req, res) {
       logMsg("sql query completed");
       if (error) {
         logErr(error);
-        res.status(500).json({ error: err });
+        res.status(500).json({ error: error });
       } else {
         if (rows.length > 0) {
           logMsg("sql query completed, rows: " + rows.length);
@@ -182,7 +182,7 @@ app.get("/genres/:id", function (req, res) {
     connection.query(sql, [genre_id], function (error, rows, fields) {
       if (error) {
         logErr(error);
-        res.status(500).json({ error: err });
+        res.status(500).json({ error: error });
       } else {
         logMsg("sql query completed, rows: " + rows.length);
         if (rows.length > 0) {
